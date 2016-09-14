@@ -36,8 +36,8 @@ gulp.task('sass', function() {
     return gulp.src("./src/scss/*.scss")
       .pipe(sourcemaps.init())
       .pipe(sass().on('error', sass.logError))
-      // .pipe(autoprefixer())
       .pipe(sourcemaps.write())
+      .pipe(autoprefixer())
       .pipe(gulp.dest("./dist"))
       .pipe(browserSync.stream());
 });

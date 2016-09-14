@@ -1,9 +1,11 @@
 // Layout
 
 .centre {
+  display: flex;
   justify-content: center;
 }
 .centre--both {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
