@@ -1,0 +1,33 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  &--centre { justify-content: center; }
+  &--space-between { justify-content: space-between; }
+  &--space-around { justify-content: space-around; }
+  &--flex-end { justify-content: flex-end}
+}
+
+.col {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: .5rem;
+  border: solid 1px black;
+}
+
+
+$breakpoint-list: ((s,  0rem), (m, 30rem), (l, 45rem), (x, 60rem));
+
+@each $id, $minWidth in $breakpoint-list {
+  @media screen and (min-width: $minWidth) {
+    .#{$id} {
+      @for $i from 1 through 12 {
+        &#{$i} {
+          // % width - 1rem to account for column margin
+          width: calc(#{100% / 12 * $i} - 1rem);
+        }
+      }
+    }
+  }
+}
